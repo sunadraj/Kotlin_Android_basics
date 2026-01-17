@@ -1,6 +1,7 @@
 package com.example.kotlinbasics
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -8,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -24,7 +26,8 @@ class MainActivity : ComponentActivity() {
             KotlinBasicsTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
-                        name = "Android"
+                        name = "Android",
+                        modifier = Modifier.padding(innerPadding)
                     )
                 }
             }
@@ -33,11 +36,16 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String) {
+fun Greeting(name: String, modifier: Modifier = Modifier) {
 
 
+    Log.d("modifier","values is :"+modifier)
 
     Column {
+
+        Spacer(modifier = Modifier.height(48.dp))
+
+
         Text(text = "Addition in kotlin 1+1  $name : ${1 + 1}")
         Spacer(modifier = Modifier.height(8.dp))
 
