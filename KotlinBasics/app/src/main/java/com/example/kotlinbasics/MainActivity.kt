@@ -4,13 +4,16 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.height
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.kotlinbasics.ui.theme.KotlinBasicsTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,8 +24,7 @@ class MainActivity : ComponentActivity() {
             KotlinBasicsTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
+                        name = "Android"
                     )
                 }
             }
@@ -31,11 +33,20 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun Greeting(name: String) {
+
+
+
+    Column {
+        Text(text = "Addition in kotlin 1+1  $name : ${1 + 1}")
+        Spacer(modifier = Modifier.height(8.dp))
+
+        Text(text = "Subtraction in kotlin 1-1 $name : ${1 - 1}")
+        Spacer(modifier = Modifier.height(8.dp))
+
+        Text(text = "Multiplication in kotlin 12*2 $name : ${12 * 2}")
+    }
+
 }
 
 @Preview(showBackground = true)
